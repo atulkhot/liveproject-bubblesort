@@ -17,6 +17,23 @@ func make_random_array(num_items, max int) []int {
 	return rand_array
 }
 
+func Min(x, y int) int {
+	if x > y {
+		return y
+	}
+	return x
+}
+
+func print_array(arr []int, num_items int) {
+	var arraylen = len(arr)
+	var items_to_print = Min(arraylen, num_items)
+
+	for i := 0; i < items_to_print; i++ {
+		fmt.Println(arr[i])
+	}
+}
+
 func main() {
-	fmt.Println(make_random_array(10, 40))
+	arr := []int{10, 20, 30}
+	print_array(arr, 2)
 }
