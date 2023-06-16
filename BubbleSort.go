@@ -29,8 +29,10 @@ func print_array(arr []int, num_items int) {
 	var items_to_print = Min(arraylen, num_items)
 
 	for i := 0; i < items_to_print; i++ {
-		fmt.Println(arr[i])
+		fmt.Print(arr[i])
+		fmt.Print(" ")
 	}
+	fmt.Println()
 }
 
 func check_sorted_if_sorted(arr []int) bool {
@@ -55,7 +57,42 @@ func check_sorted(arr []int) {
 	}
 }
 
+func bubblesort(arr []int) {
+	arr_len := len(arr)
+	for {
+		swapped := false
+		for i := 1; i < arr_len; i++ {
+			if arr[i-1] > arr[i] {
+				arr[i-1], arr[i] = arr[i], arr[i-1]
+				swapped = true
+			}
+		}
+		if swapped == false {
+			break
+		}
+	}
+}
+
+func optimized_bubblesort(arr []int) {
+	n := len(arr)
+	for {
+		swapped := false
+		for i := 1; i < n; i++ {
+			if arr[i-1] > arr[i] {
+				arr[i-1], arr[i] = arr[i], arr[i-1]
+				swapped = true
+			}
+		}
+		n = n - 1
+		if swapped == false {
+			break
+		}
+	}
+}
+
 func main() {
-	arr := []int{10, 20, 5, 30}
-	check_sorted(arr)
+	arr := make_random_array(10, 25)
+	print_array(arr, len(arr)+1)
+	optimized_bubblesort(arr)
+	print_array(arr, len(arr)+1)
 }
