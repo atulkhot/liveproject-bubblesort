@@ -57,7 +57,7 @@ func check_sorted(arr []int) {
 	}
 }
 
-func bubblesort(arr []int) {
+func first_cut_bubblesort(arr []int) {
 	arr_len := len(arr)
 	for {
 		swapped := false
@@ -73,7 +73,7 @@ func bubblesort(arr []int) {
 	}
 }
 
-func optimized_bubblesort(arr []int) {
+func bubblesort(arr []int) {
 	n := len(arr)
 	for {
 		swapped := false
@@ -93,6 +93,6 @@ func optimized_bubblesort(arr []int) {
 func main() {
 	arr := make_random_array(10, 25)
 	print_array(arr, len(arr)+1)
-	optimized_bubblesort(arr)
+	bubblesort(arr)
 	print_array(arr, len(arr)+1)
 }
