@@ -25,14 +25,8 @@ func Min(x, y int) int {
 }
 
 func print_array(arr []int, num_items int) {
-	var arraylen = len(arr)
-	var items_to_print = Min(arraylen, num_items)
-
-	for i := 0; i < items_to_print; i++ {
-		fmt.Print(arr[i])
-		fmt.Print(" ")
-	}
-	fmt.Println()
+	num_elems := Min(len(arr), num_items)
+	fmt.Println(arr[:num_elems])
 }
 
 func check_sorted_if_sorted(arr []int) bool {
